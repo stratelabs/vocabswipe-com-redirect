@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vocab Swiper</title>
+  <!-- Tells search engines this name is an alias, not a second site with the
+       same content on it. Without it the two domains compete with each other. -->
+  <link rel="canonical" href="https://vocabswiper.com/" />
+  <meta name="robots" content="noindex, follow" />
+  <!-- The no-JavaScript path. The script below goes first in practice and
+       keeps the rest of the URL; this is the floor, not the plan. -->
+  <meta http-equiv="refresh" content="0; url=https://vocabswiper.com/" />
+  <style>
+    html, body { height: 100%; margin: 0; background: #1E1F25; color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; align-items: center; justify-content: center; text-align: center; }
+    .wrap { padding: 24px; max-width: 340px; }
+    p { opacity: .6; margin: 6px 0 18px; line-height: 1.4; }
+    a { color: #8B63FF; font-weight: 700; text-decoration: none; font-size: 17px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p>Taking you to <a id="target" href="https://vocabswiper.com/">vocabswiper.com</a>…</p>
+  </div>
+  <script>
+    (function () {
+      var TARGET = "https://vocabswiper.com";
+      // The path comes too, so a link someone shared to a page on this name
+      // still lands on that page rather than dumping them at the front door.
+      var to = TARGET + location.pathname + location.search + location.hash;
+      var link = document.getElementById("target");
+      if (link) link.href = to;
+      // replace, not assign: the back button should go where they came from,
+      // not back here to be bounced again.
+      location.replace(to);
+    })();
+  </script>
+</body>
+</html>
